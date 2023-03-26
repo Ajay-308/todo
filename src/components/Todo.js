@@ -11,7 +11,7 @@ export default class Todo extends Component {
     };
   }
   handleChange=(e)=>{
-    console.log(e.target.value)
+    //console.log(e.target.value)
     this.setState({
       currTask:e.target.value
     })
@@ -32,19 +32,22 @@ export default class Todo extends Component {
   }
   render() {
     return (
-      <div style={{textAlign:"center",marginTop:"1.5rem",background:"linear-gradient(114.96deg,#823ddc 34.12%,rgb(12, 230, 158) 105.4%)"}}>
-        <input style={{maxHeight:"1.5rem",borderRadius:"1.5rem",padding:"1rem",backgroundColor:"rgba(255,0,0,0.3)",marginTop:'10rem'}} type="text" value={this.state.currTask} onChange={this.handleChange}/>
-        <button style={{backgroundColor:"rgb(238,130,238)",maxHeight:"2rem"}} onClick={this.handleSubmit}>submit</button>
+      <div class="text" >
+        
+      <div  style={{textAlign:"center",height:"20rem",marginLeft:"1rem", marginTop:"1.5rem",width:"98vw",background:"linear-gradient(114.96deg,#823ddc 34.12%,rgb(12, 230, 158) 105.4%)"}}>
+        <input id="send" style={{maxHeight:"1.5rem",padding:"1rem",border:".1rem solid blue",borderRadius:"1rem",marginTop:"5rem",width:"20rem"}} type="text" value={this.state.currTask} onChange={this.handleChange}/>
+        <button style={{maxHeight:"2rem",margin:'10px'}} onClick={this.handleSubmit}>submit</button>
         <ul>
           {
             this.state.tasks.map((taskobj)=>(
               <li key ={taskobj.id}>
                 <p>{taskobj.task}</p>
-                <button onClick={()=>this.handledelete(taskobj.id)}>Delete</button>
+                <button style={{borderRadius:"5rem"}} onClick={()=>this.handledelete(taskobj.id)}>Delete</button>
               </li>
             ))
           }
           </ul>
+      </div>
       </div>
     );
   }
